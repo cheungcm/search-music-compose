@@ -1,4 +1,4 @@
-package com.ccm.searchmusic.ui.theme
+package com.ccm.common.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

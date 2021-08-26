@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "SearchMusic"
 include ':app'
+include ':common-ui-theme'

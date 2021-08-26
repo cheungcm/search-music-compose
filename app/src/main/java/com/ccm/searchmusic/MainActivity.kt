@@ -1,12 +1,13 @@
 package com.ccm.searchmusic
 
 import android.os.Bundle
+import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.ccm.searchmusic.ui.music.Music
-import com.ccm.searchmusic.ui.theme.SearchMusicTheme
+import com.ccm.common.ui.theme.SearchMusicTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
