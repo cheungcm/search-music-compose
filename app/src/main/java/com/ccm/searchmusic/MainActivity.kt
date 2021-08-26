@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * - Song detail page
  * - Stick with a foreground notification
  *
- * But this project will keep simple as possible to meet assignment purpose only and using:
+ * But this project only focusing on "software architect skills, design patterns, and coding styles" and this requirements:
  * - MVVM pattern (pure)
  * - Creating layout programmatically (JetPack Compose)
  *
