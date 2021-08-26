@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import com.ccm.searchmusic.ui.music.Music
 import com.ccm.searchmusic.ui.theme.SearchMusicTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SearchMusicTheme {
                 Surface(color = MaterialTheme.colors.background) {
-//                    Music()
+                    Music()
                 }
             }
         }
