@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic
 
 import android.os.Bundle
@@ -6,8 +10,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import com.ccm.searchmusic.ui.music.Music
 import com.ccm.common.ui.theme.SearchMusicTheme
+import com.ccm.searchmusic.ui.music.Music
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

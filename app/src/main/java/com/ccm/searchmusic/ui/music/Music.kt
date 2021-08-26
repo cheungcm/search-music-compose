@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic.ui.music
 
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -126,9 +130,11 @@ private fun SearchAppBar(
         ) {
             Spacer(modifier = Modifier.height(Padding))
 
-            var query by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(
-                TextFieldValue(initialQuery)
-            ) }
+            var query by rememberSaveable(stateSaver = TextFieldValue.Saver) {
+                mutableStateOf(
+                    TextFieldValue(initialQuery)
+                )
+            }
             SearchTextField(
                 value = query,
                 onValueChange = { value ->

@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic.ui.music.repository
 
 import com.ccm.searchmusic.ui.music.model.MusicNetworkState

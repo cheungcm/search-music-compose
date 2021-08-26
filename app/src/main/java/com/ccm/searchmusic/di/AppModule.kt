@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic.di
 
 import android.content.Context
@@ -8,8 +12,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
 import javax.inject.Singleton
+import okhttp3.OkHttpClient
 
 @InstallIn(SingletonComponent::class)
 @Module

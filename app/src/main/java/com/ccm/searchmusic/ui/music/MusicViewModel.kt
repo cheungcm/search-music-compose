@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic.ui.music
 
 import android.net.Uri
@@ -11,6 +15,7 @@ import com.ccm.searchmusic.ui.music.model.MusicUiState
 import com.ccm.searchmusic.ui.music.model.SearchAction
 import com.ccm.searchmusic.ui.music.repository.MusicRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
@@ -19,7 +24,6 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 const val SEARCH_DEBOUNCE_MILLIS = 400L
 

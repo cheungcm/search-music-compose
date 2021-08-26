@@ -1,8 +1,11 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic
 
-import org.junit.Test
-
 import org.junit.Assert.*
+import org.junit.Test
 
 /**
  * Example local unit test, which will execute on the development machine (host).

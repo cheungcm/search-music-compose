@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic.ui.music
 
 import androidx.compose.foundation.clickable
@@ -76,11 +80,14 @@ fun MusicRowItem(
     val currentMusic = viewModel.currentMusic.observeAsState().value
     val isPlaying = currentMusic == music
 
-    ListViewItem(music = music, isPlaying = isPlaying, modifier = Modifier
-        .padding(8.dp)
-        .clickable {
-            onItemClicked(music)
-        })
+    ListViewItem(
+        music = music, isPlaying = isPlaying,
+        modifier = Modifier
+            .padding(8.dp)
+            .clickable {
+                onItemClicked(music)
+            }
+    )
 }
 
 @Composable
@@ -106,9 +113,7 @@ fun MusicThumb(imagePath: String, isPlaying: Boolean = false) {
             url = imagePath
         )
         if (isPlaying) {
-            PlayIcon(
-
-            )
+            PlayIcon()
         }
     }
 }

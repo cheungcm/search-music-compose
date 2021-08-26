@@ -1,9 +1,13 @@
+/*
+ * Copyright (C) 2021, Ryan Cheung
+ * All rights reserved.
+ */
 package com.ccm.searchmusic.ui.music.repository
 
 import com.ccm.searchmusic.data.api.MusicService
 import com.ccm.searchmusic.ui.music.model.MusicNetworkState
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
+import kotlinx.coroutines.flow.flow
 
 class MusicRepositoryImpl @Inject constructor(
     private val service: MusicService
