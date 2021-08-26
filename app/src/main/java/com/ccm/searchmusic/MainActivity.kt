@@ -5,34 +5,30 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import com.ccm.searchmusic.ui.theme.SearchMusicTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Due to insufficient time, all will keep simple as possible:
+ * - Language: Kotlin
+ * - Deployment Target: Android 7.0+
+ * - Compose
+ * - MVVM
+ * - Retrofit
+ * - Dagger Hilt
+ * - UI: just use a play arrow, not using player bar binding with notification
+ * */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SearchMusicTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+//                    Music()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    SearchMusicTheme {
-        Greeting("Android")
     }
 }
