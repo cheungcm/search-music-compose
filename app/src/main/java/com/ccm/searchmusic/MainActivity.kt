@@ -14,7 +14,12 @@ import com.ccm.searchmusic.ui.music.Music
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * All will keep simple as possible to meet assignment purpose and using:
+ * Live Music App should be:
+ * - Song nav bar on bottom
+ * - Song detail page
+ * - Stick with a foreground notification
+ *
+ * But this project will keep simple as possible to meet assignment purpose only and using:
  * - MVVM pattern (pure)
  * - Creating layout programmatically (JetPack Compose)
  *
