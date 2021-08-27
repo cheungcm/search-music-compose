@@ -64,36 +64,35 @@ dependencies {
 
 	// compose
 	implementation Deps.Android.Compose.ui
-	implementation Deps.Android.Compose.materialDesign
 	implementation Deps.Android.Compose.uiToolingPreview
+	implementation Deps.Android.Compose.materialDesign
 	implementation Deps.Android.Compose.runtime
 	implementation Deps.Android.Compose.navigation
 	implementation Deps.Android.Compose.liveData
 	implementation Deps.Android.Compose.viewModels
 
-	implementation 'com.google.accompanist:accompanist-coil:0.13.0'
-	implementation "com.google.accompanist:accompanist-insets:$accompanistVersion"
-	implementation "io.coil-kt:coil-compose:$coilComposeVersion"
+	implementation Deps.Accompanist.insets
+
+	implementation Deps.Coil.compose
 
 	// hilt
-	implementation "com.google.dagger:hilt-android:$hiltVersion"
-	kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
-	implementation "androidx.hilt:hilt-navigation-compose:$hiltComposeVersion"
+	implementation Deps.Dagger.hilt
+	kapt Deps.Dagger.hiltCompiler
+	implementation Deps.Dagger.hiltCompose
 
 	// retrofit
-	implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-	implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
-	implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
-	kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
-	implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
-	implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+	implementation Deps.Retrofit.retrofit
+	implementation Deps.Retrofit.moshiConverter
+	implementation Deps.OkHttp.okhttp
+	implementation Deps.OkHttp.logger
+	implementation Deps.Moshi.moshi
+	kapt Deps.Moshi.kotlinCodegen
 
 	// exoplayer
-	implementation "com.google.android.exoplayer:exoplayer-core:$exoplayerVersion"
-	implementation "com.google.android.exoplayer:extension-okhttp:$exoplayerVersion"
-//    implementation "com.github.alashow.ExoPlayer-Extensions:extension-flac:v2.15.1"
+	implementation Deps.ExoPlayer.exoPlayer
+	implementation Deps.ExoPlayer.exoPlayerOkhttp
 
-	implementation "com.jakewharton.timber:timber:5.0.1"
+	implementation Deps.Timber.timber
 
 	testImplementation 'junit:junit:4.13.2'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.3'
