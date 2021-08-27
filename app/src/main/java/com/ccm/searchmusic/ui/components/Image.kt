@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.rememberImagePainter
 import com.ccm.searchmusic.R
-import com.ccm.searchmusic.ui.theme.ThumbSize
+import com.ccm.common.ui.theme.ThumbSize
 
 @Composable
 fun CoverImage(

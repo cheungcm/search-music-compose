@@ -46,9 +46,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ccm.searchmusic.R
 import com.ccm.searchmusic.ui.music.model.SearchAction
-import com.ccm.searchmusic.ui.theme.Padding
-import com.ccm.searchmusic.ui.theme.PaddingSmall
-import com.ccm.searchmusic.ui.theme.PaddingTiny
+import com.ccm.common.ui.theme.Padding
+import com.ccm.common.ui.theme.PaddingSmall
+import com.ccm.common.ui.theme.PaddingTiny
 import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
