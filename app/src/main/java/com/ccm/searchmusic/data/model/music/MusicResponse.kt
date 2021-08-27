@@ -13,5 +13,5 @@ data class MusicResponse(
     var resultCount: Int = 0,
 
     @Json(name = "results")
-    var results: List<Music> = arrayListOf()
+    var results: List<Music> = mutableListOf()
 )

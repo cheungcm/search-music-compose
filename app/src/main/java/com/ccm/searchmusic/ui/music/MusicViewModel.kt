@@ -8,9 +8,9 @@ import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ccm.searchmusic.base.NetworkResult
 import com.ccm.searchmusic.data.model.music.Music
 import com.ccm.searchmusic.player.AudioPlayer
-import com.ccm.searchmusic.ui.music.model.MusicNetworkState
 import com.ccm.searchmusic.ui.music.model.MusicUiState
 import com.ccm.searchmusic.ui.music.model.SearchAction
 import com.ccm.searchmusic.ui.music.repository.MusicRepository
@@ -83,11 +83,11 @@ class MusicViewModel @Inject constructor(
             musicRepository.getMusics(query, limit)
                 .collect { state ->
                     when (state) {
-                        is MusicNetworkState.Success -> {
-                            uiState.value = MusicUiState(data = state.data)
+                        is NetworkResult.Success -> {
+                            uiState.value = MusicUiState(data = state.value)
                         }
-                        is MusicNetworkState.Failure -> {
-                            uiState.value = MusicUiState(error = state.exception)
+                        is NetworkResult.Failure -> {
+                            uiState.value = MusicUiState(error = state.message)
                         }
                     }
                 }
