@@ -4,7 +4,6 @@
  */
 package com.ccm.searchmusic.ui.music
 
-import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -99,9 +98,10 @@ class MusicViewModel @Inject constructor(
         }
         viewModelScope.launch {
             audioPlayer.apply {
-                setSource(Uri.parse(music.previewUrl))
-                prepare()
-                play()
+                playMusic(music.previewUrl)
+                onCompletion {
+                    currentMusic.value = null
+                }
             }
         }
     }

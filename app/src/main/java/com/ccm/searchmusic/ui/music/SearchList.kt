@@ -81,7 +81,7 @@ fun MusicRowItem(
     onItemClicked: (item: Music) -> Unit
 ) {
     val currentMusic = viewModel.currentMusic.observeAsState().value
-    val isPlaying = currentMusic == music
+    val isPlaying = if (currentMusic == null) false else currentMusic == music
 
     ListViewItem(
         music = music, isPlaying = isPlaying,

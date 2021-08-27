@@ -26,6 +26,7 @@ import javax.inject.Singleton
 import okhttp3.OkHttpClient
 
 interface AudioPlayer {
+    fun playMusic(url: String? = null)
     fun play(startAtPosition: Long? = null)
     fun setSource(uri: Uri, local: Boolean = false): Boolean
     fun prepare()
@@ -44,7 +45,7 @@ interface AudioPlayer {
 //    fun onBuffering(buffering: OnBuffering<AudioPlayer>)
 //    fun onIsPlaying(playing: OnIsPlaying<AudioPlayer>)
 //    fun onReady(ready: OnReady<AudioPlayer>)
-//    fun onCompletion(completion: OnCompletion<AudioPlayer>)
+    fun onCompletion(completion: OnCompletion<AudioPlayer>)
 }
 
 @Singleton
@@ -69,7 +70,16 @@ class AudioPlayerImpl @Inject constructor(
 //    private var onBuffering: OnBuffering<AudioPlayer> = {}
 //    private var onIsPlaying: OnIsPlaying<AudioPlayer> = { _, _ -> }
 //    private var onReady: OnReady<AudioPlayer> = {}
-//    private var onCompletion: OnCompletion<AudioPlayer> = {}
+    private var onCompletion: OnCompletion<AudioPlayer> = {}
+
+    override fun playMusic(url: String?) {
+        if (url.isNullOrEmpty()) {
+            return
+        }
+        setSource(Uri.parse(url))
+        prepare()
+        play()
+    }
 
     override fun play(startAtPosition: Long?) {
         if (startAtPosition == null) {
@@ -147,9 +157,9 @@ class AudioPlayerImpl @Inject constructor(
 //        this.onReady = ready
 //    }
 //
-//    override fun onCompletion(completion: OnCompletion<AudioPlayer>) {
-//        this.onCompletion = completion
-//    }
+    override fun onCompletion(completion: OnCompletion<AudioPlayer>) {
+        this.onCompletion = completion
+    }
 
     override fun onPlaybackStateChanged(state: Int) {
         super.onPlaybackStateChanged(state)
@@ -165,7 +175,7 @@ class AudioPlayerImpl @Inject constructor(
             }
             Player.STATE_ENDED -> {
                 isBuffering = false
-//                onCompletion(this)
+                onCompletion(this)
             }
             else -> Unit
         }
