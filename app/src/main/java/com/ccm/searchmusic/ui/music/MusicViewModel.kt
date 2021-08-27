@@ -46,8 +46,12 @@ class MusicViewModel @Inject constructor(
                         searchQuery.value = action.query
                     }
                     is SearchAction.PlayMusic -> {
-                        playMusic(action.music)
-                        currentMusic.value = action.music
+                        if (action.music.isPlaying()) {
+                            stopMusic()
+                        } else {
+                            playMusic(action.music)
+                            currentMusic.value = action.music
+                        }
                     }
                     else -> {
                         // TODO
@@ -105,4 +109,11 @@ class MusicViewModel @Inject constructor(
             }
         }
     }
+
+    private fun stopMusic() {
+        audioPlayer.stop()
+        currentMusic.value = null
+    }
+
+    private fun Music.isPlaying() = currentMusic.value == this
 }
