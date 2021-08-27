@@ -42,13 +42,13 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.TransformedText
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.ccm.searchmusic.R
-import com.ccm.searchmusic.ui.music.model.SearchAction
 import com.ccm.common.ui.theme.Padding
 import com.ccm.common.ui.theme.PaddingSmall
 import com.ccm.common.ui.theme.PaddingTiny
+import com.ccm.common.ui.theme.SearchBarHeight
+import com.ccm.searchmusic.R
+import com.ccm.searchmusic.ui.music.model.SearchAction
 import com.google.accompanist.insets.statusBarsPadding
 
 @Composable
@@ -78,7 +78,6 @@ private fun Music(
     actioner: (SearchAction) -> Unit,
     viewModel: MusicViewModel
 ) {
-    val searchBarHeight = 200.dp
     val searchBarOffset = remember { Animatable(0f) }
 
     Scaffold(
@@ -87,7 +86,7 @@ private fun Music(
                 modifier = Modifier
                     .graphicsLayer {
                         alpha = 1 - searchBarOffset.value
-                        translationY = searchBarHeight.value * (-searchBarOffset.value)
+                        translationY = SearchBarHeight.value * (-searchBarOffset.value)
                     },
                 onQueryChange = { actioner(SearchAction.QueryChange(it)) },
                 onSearch = { actioner(SearchAction.Search) },
@@ -158,7 +157,10 @@ fun SearchTextField(
     onSearch: () -> Unit = {},
     hint: String,
     maxLength: Int = 50,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search, keyboardType = KeyboardType.Text),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(
+        imeAction = ImeAction.Search,
+        keyboardType = KeyboardType.Text
+    ),
     keyboardActions: KeyboardActions = KeyboardActions(onSearch = { onSearch() }),
 ) {
     OutlinedTextField(
@@ -182,7 +184,12 @@ fun SearchTextField(
         keyboardActions = keyboardActions,
         singleLine = true,
         maxLines = 1,
-        visualTransformation = { text -> TransformedText(text.capitalize(), OffsetMapping.Identity) },
+        visualTransformation = { text ->
+            TransformedText(
+                text.capitalize(),
+                OffsetMapping.Identity
+            )
+        },
         modifier = modifier
             .padding(horizontal = Padding)
     )

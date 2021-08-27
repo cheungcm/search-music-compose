@@ -24,7 +24,6 @@ import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
 import okhttp3.OkHttpClient
-import timber.log.Timber
 
 interface AudioPlayer {
     fun play(startAtPosition: Long? = null)
@@ -82,7 +81,6 @@ class AudioPlayerImpl @Inject constructor(
     }
 
     override fun setSource(uri: Uri, local: Boolean): Boolean {
-        Timber.d("Setting source: local=$local, uri=$uri")
         return try {
             if (local) player.setMediaItem(MediaItem.fromUri(uri), true)
             else {

@@ -25,6 +25,9 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.ccm.common.ui.theme.Divider
+import com.ccm.common.ui.theme.Padding
+import com.ccm.common.ui.theme.PaddingSmall
 import com.ccm.searchmusic.data.model.music.Music
 import com.ccm.searchmusic.ui.components.CoverImage
 import com.ccm.searchmusic.ui.components.PlayIcon
@@ -61,7 +64,7 @@ private fun SearchListContent(
             modifier = Modifier.fillMaxSize()
         ) {
             item {
-                Spacer(Modifier.height(1.dp))
+                Spacer(Modifier.height(Divider))
             }
 
             items(musics) {
@@ -83,7 +86,7 @@ fun MusicRowItem(
     ListViewItem(
         music = music, isPlaying = isPlaying,
         modifier = Modifier
-            .padding(8.dp)
+            .padding(PaddingSmall)
             .clickable {
                 onItemClicked(music)
             }
@@ -123,7 +126,7 @@ fun MusicDesc(music: Music) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 10.dp)
+            .padding(start = Padding)
     ) {
         Text(
             text = music.trackName.orEmpty()

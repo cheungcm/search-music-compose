@@ -11,4 +11,8 @@ val Padding = 16.dp
 val PaddingSmall = 8.dp
 val PaddingTiny = 4.dp
 
+val Divider = 1.dp
+
 val ThumbSize = 75.dp
+
+val SearchBarHeight = 200.dp

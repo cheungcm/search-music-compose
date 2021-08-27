@@ -22,7 +22,6 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 
 const val SEARCH_DEBOUNCE_MILLIS = 400L
@@ -61,9 +60,6 @@ class MusicViewModel @Inject constructor(
         viewModelScope.launch {
             searchQuery
                 .debounce(SEARCH_DEBOUNCE_MILLIS)
-                .filter { query ->
-                    return@filter query.trim().isNotEmpty()
-                }
                 .distinctUntilChanged()
                 .collectLatest {
                     searchMusics(it)
@@ -79,6 +75,9 @@ class MusicViewModel @Inject constructor(
 
     // Set limit to 15 for demo purpose
     private fun searchMusics(query: String, limit: Int = 15) {
+        if (query.trim().isEmpty()) {
+            return
+        }
         viewModelScope.launch {
             musicRepository.getMusics(query, limit)
                 .collect { state ->
